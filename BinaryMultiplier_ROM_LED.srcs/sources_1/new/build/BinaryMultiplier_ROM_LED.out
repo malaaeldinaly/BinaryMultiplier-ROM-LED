@@ -1,0 +1,41 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001dc5a662ce0 .scope module, "BinaryMultiplier_ROM_LED" "BinaryMultiplier_ROM_LED" 2 23;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 2 "a";
+    .port_info 1 /INPUT 2 "b";
+    .port_info 2 /OUTPUT 4 "result";
+L_000001dc5a3db140 .functor BUFZ 8, L_000001dc5a3de190, C4<00000000>, C4<00000000>, C4<00000000>;
+v000001dc5a663490 .array "ROM", 0 15, 7 0;
+v000001dc5a3db280_0 .net *"_ivl_0", 7 0, L_000001dc5a3de190;  1 drivers
+v000001dc5a663800_0 .net *"_ivl_2", 3 0, L_000001dc5a3de230;  1 drivers
+v000001dc5a3db0a0_0 .net *"_ivl_4", 5 0, L_000001dc5a3de2d0;  1 drivers
+L_000001dc5a6d8018 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v000001dc5a662e70_0 .net *"_ivl_7", 1 0, L_000001dc5a6d8018;  1 drivers
+o000001dc5a697068 .functor BUFZ 2, C4<zz>; HiZ drive
+v000001dc5a662f10_0 .net "a", 1 0, o000001dc5a697068;  0 drivers
+o000001dc5a697098 .functor BUFZ 2, C4<zz>; HiZ drive
+v000001dc5a662fb0_0 .net "b", 1 0, o000001dc5a697098;  0 drivers
+v000001dc5a663050_0 .net "result", 3 0, L_000001dc5a3de370;  1 drivers
+v000001dc5a3de0f0_0 .net "w", 7 0, L_000001dc5a3db140;  1 drivers
+L_000001dc5a3de190 .array/port v000001dc5a663490, L_000001dc5a3de2d0;
+L_000001dc5a3de230 .concat [ 2 2 0 0], o000001dc5a697098, o000001dc5a697068;
+L_000001dc5a3de2d0 .concat [ 4 2 0 0], L_000001dc5a3de230, L_000001dc5a6d8018;
+L_000001dc5a3de370 .part L_000001dc5a3db140, 0, 4;
+    .scope S_000001dc5a662ce0;
+T_0 ;
+    %vpi_call 2 30 "$readmemb", "product.txt", v000001dc5a663490 {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "BinaryMultiplier_ROM_LED.v";
